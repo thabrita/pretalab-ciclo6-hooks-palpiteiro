@@ -5,7 +5,7 @@ import Contador from "./components/Contador";
 function App() {
   return (
     <div className="App">
-      <Header nomeGrupo="Grupo Ada!" integrantes="Lis, Si e Mands" />
+      <Header nomeGrupo="Alone" integrantes="Thaís Brito" />
       <Contador />
     </div>
   );
