@@ -1,14 +1,30 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import ContadorPalpiteiro from "./Contador";
 
-const Palpiteiro = ({ valor }) => {
-  const [frases, setFrases] = useState();
+function Palpiteiro(ContadorPalpiteiro) {
+  const [frases, setFrases] = useState("");
 
-  const Palpites = () => {
-    
-  }
-  return 
-  <>
-  </>;
-};
+  const palpites = () => {
+    switch (ContadorPalpiteiro) {
+      case 0:
+        msg = "E tem zero no bingo é?";
+        break;
+
+      default:
+        msg = "Não sou capaz de opinar!";
+        break;
+    }
+
+    document.write(msg);
+  };
+
+  useEffect(() => {
+    setFrases();
+  }, []);
+
+  return (
+    <p>{frases}</p>
+  );
+}
 export default Palpiteiro;
