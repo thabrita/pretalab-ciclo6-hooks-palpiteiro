@@ -1,34 +1,48 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import ContadorPalpiteiro from "./Contador";
-import flork from '../assets/flork.png'
+import flork from '../assets/flork.png';
+import Contador from './Contador'
 
 const Palpiteiro = ({ valor }) => {
-  // function Palpiteiro(ContadorPalpiteiro) {
-  //   const [frases, setFrases] = useState("");
+  const [frases, setFrases] = useState("");
 
-  //   const palpites = () => {
-  //     switch (ContadorPalpiteiro) {
-  //       case 0:
-  //         msg = "E tem zero no bingo é?";
-  //         break;
+  const palpites = () => {
+    switch (valor) {
+      case 0:
+        msg = "E tem zero no bingo é?";
+        break;
+      case 1:
+        return "Hello World!";
+      case 10:
+        return "De romboo"
+      case 11:
+        return "As canelas de odete"
+      case 12:
+        return "Vitamina B12"
+      default:
+        return "Não sou capaz de opinar!";
+    }
+  };
 
-  //       default:
-  //         msg = "Não sou capaz de opinar!";
-  //         break;
-  //     }
+  // useEffect(() => {
+  //   // frases 
+  //   // ? setFrases((palpites))
+  //   // : setFrases("É aquilo")
+  //   setFrases((palpites))
+  // }, []);
 
-  //     document.write(msg);
-  //   };
+  useEffect(() => {
+    function exibirFrases() {
+      setFrases((palpites));
+    }
 
-  //   useEffect(() => {
-  //     setFrases();
-  //   }, []);
+    exibirFrases()
+  })
 
   return (
     <>
       <h3>Palpitometro</h3>
-      <p>E tem zero no bingo é?</p>
+      <p>{frases}</p>
 
       {/* imagem pela url */}
       {/* <img 
@@ -38,13 +52,14 @@ const Palpiteiro = ({ valor }) => {
       /> */}
 
       {/* imagem local */}
-      <img 
-      src={flork}
-      alt=""
-      width="45px"
+      <img
+        src={flork}
+        alt=""
+        width="45px"
       />
 
     </>
   );
 }
+
 export default Palpiteiro;
